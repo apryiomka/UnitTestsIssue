@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<objects xmlns="http://www.springframework.net"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.net http://www.springframework.net/xsd/spring-objects.xsd">
+
+  <object name="IBecWebServiceProvider.Config.Base"
+        type="System.Collections.Generic.Dictionary&lt;string, string>"
+        abstract="true">
+    <property name="['EndPoint']" value="https://becws.ccsctp.com/becwebservice.svc" />
+    <property name="['AuthorizationCertificateThumb']" value="ef75458f545c11639a8b2482cabebdf195970edf" />
+  </object>
+
+  <object name="ICwsProvider.Config.Base"
+          type="System.Collections.Generic.Dictionary&lt;string, string>"
+          abstract="true">
+    <property name="['SecretThumb']" value="ef75458f545c11639a8b2482cabebdf195970edf" />
+    <property name="['CwsUri']" value="https://freelanceppe.partners.portal.trafficmanager.net" />
+  </object>
+
+  <object name="IWebApiProvider.Config.Base" 
+          type="System.Collections.Generic.Dictionary&lt;string, string>"
+          abstract="true">
+    <property name="['CertificateThumb']" value="ef75458f545c11639a8b2482cabebdf195970edf" />
+    <property name="['RequestUrl']" value="https://conciergeinsightsppe.cloudapp.net/api/PsatEmailData" />
+  </object>
+
+</objects>

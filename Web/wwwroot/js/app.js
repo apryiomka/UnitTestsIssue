@@ -1,0 +1,1 @@
+﻿var feedbackApp = angular.module('feedbackApp', []);

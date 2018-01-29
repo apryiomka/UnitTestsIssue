@@ -1,0 +1,30 @@
+﻿.rating-stars {
+    margin: auto;
+    padding: 0;
+    max-width: 300px;
+    text-align: center;
+}
+
+    .rating-stars ul {
+        padding: 0;
+        margin: 0;
+    }
+
+    .rating-stars li {
+        color: #D0CECE;
+        list-style-type: none;
+        display: inline-block;
+        padding: 1px;
+        font-weight: bold;
+        cursor: pointer;
+        font-size: 2.5em;
+    }
+
+    .rating-stars .filled {
+        color: #1F4E79;
+    }
+
+.rating-label {
+    font-size: medium;
+    text-align: center;
+}

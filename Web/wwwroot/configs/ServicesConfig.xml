@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<objects xmlns="http://www.springframework.net"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.net http://www.springframework.net/xsd/spring-objects.xsd">
+
+  <import resource="Environments\EnvironmentServicesConfig.xml"/>
+
+  <object name="ICwsProvider"
+        type="ProSAT.Processors.Common.DataProviders.CBOX.CwsProvider, ProSAT.Processors.Common"
+        depends-on="ICwsProvider.Config">
+    <constructor-arg name="becWebService" ref="IBecWebServiceProvider" />
+    <constructor-arg name="secretThumb" expression="@(ICwsProvider.Config)['SecretThumb']" />
+    <constructor-arg name="cwsUri" expression="@(ICwsProvider.Config)['CwsUri']" />
+    <constructor-arg name="adminCharacterLimit" value="400" />
+    <constructor-arg name="enableAdminDetails" value="false" />
+    <constructor-arg name="adminLimit" value="40" />
+  </object>
+
+  <object name="IBecWebServiceProvider"
+        type="ProSAT.Processors.Common.DataProviders.BEC.BecWebServiceProvider, ProSAT.Processors.Common"
+        depends-on="IBecWebServiceProvider.Config">
+    <constructor-arg name="endpoint" expression="@(IBecWebServiceProvider.Config)['EndPoint']" />
+    <constructor-arg name="bindingType" value="WSHttpBinding" />
+    <constructor-arg name="authorizationCertificateThumb" expression="@(IBecWebServiceProvider.Config)['AuthorizationCertificateThumb']" />
+  </object>
+
+  <object name="FeedbackProvider" 
+          abstract="true">
+    <constructor-arg name="webApiProvider">
+      <object type="ProSAT.Processors.Common.DataProviders.Feedback.WebApiProvider">
+        <constructor-arg name="certificateThumb" expression="@(IWebApiProvider.Config)['CertificateThumb']" />
+        <constructor-arg name="requestUrl" expression="@(IWebApiProvider.Config)['RequestUrl']" />
+      </object>
+    </constructor-arg>
+  </object>
+  
+  <object type="System.Collections.Generic.List&lt;ProSAT.Processors.Common.DataProviders.Feedback.IFeedbackProvider>">
+    <constructor-arg>
+      <list element-type="ProSAT.Processors.Common.DataProviders.Feedback.IFeedbackProvider">
+        <object type="ProSAT.Processors.Common.DataProviders.Feedback.CsatFeedbackProvider">
+          <constructor-arg name="cwsProvider" ref="ICwsProvider" />
+        </object>
+        <object type="ProSAT.Processors.Common.DataProviders.Feedback.PsatFeedbackProvider" parent="FeedbackProvider" />
+        <object type="ProSAT.Processors.Common.DataProviders.Feedback.NpsFeedbackProvider" parent="FeedbackProvider" />
+      </list>
+    </constructor-arg>
+  </object>
+</objects>

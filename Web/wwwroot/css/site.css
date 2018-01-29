@@ -1,0 +1,93 @@
+﻿body {
+    margin: 0;
+    font-family: wf_segoe-ui_light, wf_segoe-ui_normal, Tahoma, Verdana, Arial, sans-serif,"Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
+}
+
+header {
+    background-color: #D83B01;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+    header h2 {
+        line-height: 1.2083333333;
+        font-weight: 500;
+        font-size: 28px;
+    }
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    width: 90%;
+    max-width: 600px;
+    margin: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 10px;
+    overflow: auto;
+}
+
+section {
+    margin: 10px;
+    padding: 10px;
+    font-size: larger;
+}
+
+input[type=email] {
+    display: block;
+    margin-top: 10px;
+}
+
+textarea {
+    width: 100%;
+    margin: 5px auto;
+    height: 150px;
+    max-height: 400px;
+    max-width: 600px;
+}
+
+button {
+    padding: 6px 12px;
+    text-align: center;
+    color: #fff;
+    background: #0078d7; /*#1F4E79;#2b90d9; #3296E1 !important*/
+    border: 0 none;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.3;
+    float: right;
+    margin-top: 10px;
+    margin-right: 20px;
+    width: 100px;
+}
+
+    button:hover {
+        opacity: .85;
+    }
+
+    button:disabled {
+        background: grey;
+    }
+
+        button:disabled:hover {
+            opacity: 1;
+        }
+
+#privacy-link {
+    float: left;
+    margin-left: 20px;
+    margin-top: 20px;
+    font-size: smaller;
+    text-decoration: none;
+    color: blue;
+}
+
+#email {
+    display: inline;
+    width: 30em;
+}
+
+.error {
+    display: inline;
+    color: red;
+    font-size: small;
+}
